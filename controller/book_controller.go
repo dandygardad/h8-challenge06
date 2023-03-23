@@ -60,7 +60,7 @@ func GetBook(ctx *gin.Context) {
 	book, errService := service.GetBook(cvtId)
 	if errService != nil {
 		ctx.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
-			"message": errService,
+			"message": errService.Error(),
 		})
 		return
 	}
